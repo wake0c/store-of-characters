@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "store-of-characters": {
+      "hosting": {
+        "angular-app": [
+          "store-of-characters"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "store-of-characters"
+  }
+}
