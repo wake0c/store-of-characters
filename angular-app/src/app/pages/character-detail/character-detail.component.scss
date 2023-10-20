@@ -1,0 +1,21 @@
+.main-screen-size {
+  width: 100vw;
+  height: 100svh;
+  box-sizing: border-box;
+  padding: 20px;
+  padding-top: 80px; 
+  background-color: #a4ffdc;
+}
+
+.submit-btn {
+  background-color: #07A0C3;
+  color: #ffffff;
+  border: none;
+  height: 100px;
+  width: 200px;
+}
+.submit-btn:hover {
+  background-color: #65afbf;
+  border: 2px solid #ffffff;
+
+}

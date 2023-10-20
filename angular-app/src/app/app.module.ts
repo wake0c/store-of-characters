@@ -23,6 +23,7 @@ import { CreateCharacterButtonComponent } from './components/create-character-bu
 import { CreateNewCharacterComponent } from './pages/create-new-character/create-new-character.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { AlertDialogComponent } from './dialogs/alert-dialog/alert-dialog.component';
+import { CharacterDetailComponent } from './pages/character-detail/character-detail.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { AlertDialogComponent } from './dialogs/alert-dialog/alert-dialog.compon
     CreateNewCharacterComponent,
     ToolbarComponent,
     AlertDialogComponent,
+    CharacterDetailComponent,
   ],
   imports: [
     AppRoutingModule,

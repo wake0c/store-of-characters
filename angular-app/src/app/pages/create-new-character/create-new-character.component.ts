@@ -1,9 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormBuilder, Validators, FormArray, FormGroup } from '@angular/forms';
 import { Storage, ref, uploadBytesResumable } from '@angular/fire/storage';
-import { Character, CharacterClipboardData } from 'src/app/characters';
+import { Character, CharacterClipboardData, firestoreCharacter } from 'src/app/characters';
 import { MatDialog } from '@angular/material/dialog';
 import { AlertDialogComponent } from 'src/app/dialogs/alert-dialog/alert-dialog.component';
+import { Router } from '@angular/router';
+import { Firestore, addDoc, collection } from '@angular/fire/firestore';
+import { FirebaseClientService } from 'src/app/services/firebase-client.service';
 
 
 
@@ -13,14 +16,12 @@ import { AlertDialogComponent } from 'src/app/dialogs/alert-dialog/alert-dialog.
   styleUrls: ['./create-new-character.component.scss']
 })
 export class CreateNewCharacterComponent {
-  param = {
-    
-  }
+  
   commandTmp: string = "============能力値============\nCCB<={SAN} 【SAN値チェック】\nCCB<={Idea} 【アイデア】\nCCB<={Luck} 【幸運】\nCCB<={Knowledge} 【知識】\n \n===========能力値*5===========\nCCB<=({STR}*5) 【STR】\nCCB<=({CON}*5) 【CON】\nCCB<=({POW}*5) 【POW】\nCCB<=({DEX}*5) 【DEX】\nCCB<=({APP}*5) 【APP】\nCCB<=({SIZ}*5) 【SIZ】\nCCB<=({INT}*5) 【INT】\nCCB<=({EDU}*5) 【EDU】\n \n============技能値============\n";
 
   imageFile!: File;
 
-  backgroundImageStyle = {'background-image':`url("")`}
+  backgroundImageStyle = {'background-image':`url("")`};
   isContainImg: boolean = false;
 
 
@@ -107,8 +108,10 @@ export class CreateNewCharacterComponent {
 
   constructor(
     private fb: FormBuilder,
-    private storage: Storage,
     public dialog: MatDialog,
+    private router: Router,
+    private firestore: Firestore = inject(Firestore),
+    private firebaseClientService: FirebaseClientService,
     ){
       this.calStatus();
     }
@@ -245,12 +248,67 @@ export class CreateNewCharacterComponent {
 
 
   uplodeFile() {
-
+    console.log(this.skills.value);
     for(let skill of this.skills.getRawValue()) {
       const skillStr: string = `CCB<=${skill.skillCurrent} 【${skill.skillLabel}】\n`;
       this.commandTmp += skillStr;
     }
 
+    const character:firestoreCharacter = {
+      name: this.name,
+      memo: this.memo,
+      externalUrl: this.externalUrl,
+      color: this.color,
+      isSecred: this.isSecred,
+
+      str: this.str,
+      diffStr: this.diffStr,
+      currentStr: this.currentStr,
+      con: this.con,
+      diffCon: this.diffCon,
+      currentCon: this.currentCon,
+      pow: this.pow,
+      diffPow: this.diffPow,
+      currentPow: this.currentPow,
+      dex: this.dex,
+      diffDex: this.diffDex,
+      currentDex: this.currentDex,
+      app: this.app,
+      diffApp: this.diffApp,
+      currentApp: this.currentApp,
+      siz: this.siz,
+      diffSiz: this.diffSiz,
+      currentSiz: this.currentSiz,
+      int: this.int,
+      diffInt: this.diffInt,
+      currentInt: this.currentInt,
+      edu: this.edu,
+      diffEdu: this.diffEdu,
+      currentEdu: this.currentEdu,
+      hp: this.hp,
+      diffHp: this.diffHp,
+      currentHp: this.currentHp,
+      mp: this.mp,
+      diffMp: this.diffMp,
+      currentMp: this.currentMp,
+      san: this.san,
+      diffSan: this.diffSan,
+      currentSan: this.currentSan,
+      sanMax: this.sanMax,
+      diffSanMax: this.diffSanMax,
+      idea: this.idea,
+      diffIdea: this.diffIdea,
+      currentIdea: this.currentIdea,
+      luck: this.luck,
+      diffLuck: this.diffLuck,
+      currentLuck: this.currentLuck,
+      knowledge: this.knowledge,
+      diffKnowledge: this.diffKnowledge,
+      currentKnowledge: this.currentKnowledge,
+
+      skills: this.skills.value,
+    }
+    
     let status: CharacterClipboardData= {
       "kind":"character",
       "data":<Character> {
@@ -324,7 +382,9 @@ export class CreateNewCharacterComponent {
         owner: null
       }
     }
+    this.firebaseClientService.insertCharacter(character, status);
     console.log(JSON.stringify(status));
+    this.router.navigateByUrl('home/character-ditail');
   }
   
 }

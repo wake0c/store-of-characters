@@ -6,5 +6,6 @@ export const environment = {
     apiKey: 'AIzaSyB8WJPRQpP7zsPqoc0x9kAinymP5qDbeTU',
     authDomain: 'store-of-characters.firebaseapp.com',
     messagingSenderId: '578714714485',
+    databaseURL: "https://store-of-characters-default-rtdb.firebaseio.com",
   },
 };

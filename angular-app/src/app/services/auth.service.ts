@@ -12,28 +12,28 @@ import { Router } from '@angular/router';
 
 export class AuthService {
 
-  private auth: Auth = inject(Auth);
-  authState$ = authState(auth);
-  authStateSubscription: Subscription;
+  // private auth: Auth = inject(Auth);
+  // authState$ = authState(auth);
+  // authStateSubscription: Subscription;
 
-  constructor(
-    auth: Auth
-  ) {
-    this.authStateSubscription = this.authState$.subscribe((aUser: User | null) => {
-     console.log(aUser);
-    })
-  }
+  // constructor(
+  //   auth: Auth
+  // ) {
+  //   this.authStateSubscription = this.authState$.subscribe((aUser: User | null) => {
+  //    console.log(aUser);
+  //   })
+  // }
 
 
-  async googleSignin() {
-    this.auth.(new GoogleAuthProvider())
-    .then((result) => {
-      console.log(result);
-    });
-    const provider = new GoogleAuthProvider();
-    const credential = await this.angularFireAuth.signInWithPopup(provider);
-    return this.updateUserData(credential.user);
-  }
+  // async googleSignin() {
+  //   this.auth.(new GoogleAuthProvider())
+  //   .then((result) => {
+  //     console.log(result);
+  //   });
+  //   const provider = new GoogleAuthProvider();
+  //   const credential = await this.angularFireAuth.signInWithPopup(provider);
+  //   return this.updateUserData(credential.user);
+  // }
 
 
 
