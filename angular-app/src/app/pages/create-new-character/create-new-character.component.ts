@@ -25,45 +25,45 @@ export class CreateNewCharacterComponent {
   isContainImg: boolean = false;
 
 
-  name: string = '栗原さん';
-  memo: string = '働かない。';
-  externalUrl: string = 'あああああ';
+  name: string = '';
+  memo: string = '';
+  externalUrl: string = '';
   color: string = '#ffffff';
   isSecred: boolean = false;
 
   
 
   
-  str: number = 12;
+  str!: number;
   diffStr!: number;
   currentStr!:number
 
-  con: number = 3;
+  con!: number;
   diffCon!: number;
   currentCon!: number;
 
-  pow: number = 17;
+  pow!: number;
   diffPow!: number;
   currentPow!: number;
 
-  dex: number = 14;
+  dex!: number;
   diffDex!: number;
   currentDex!: number;
 
   
-  app: number = 17;
+  app!: number;
   diffApp!: number;
   currentApp!: number;
 
-  siz: number = 13;
+  siz!: number;
   diffSiz!: number;
   currentSiz!: number;
 
-  int: number = 14;
+  int!: number;
   diffInt!: number;
   currentInt!: number;
 
-  edu: number = 17;
+  edu!: number;
   diffEdu!: number;
   currentEdu!: number;
 
@@ -76,22 +76,22 @@ export class CreateNewCharacterComponent {
   diffMp!: number;
   currentMp!: number;
 
-  san: number = 0;
+  san!: number;
   diffSan! :number;
   currentSan!: number;
   
   sanMax:number = 99;
   diffSanMax!: number;
 
-  idea: number = 0;
+  idea!: number;
   diffIdea!: number;
   currentIdea!: number;
 
-  luck: number = 0;
+  luck!: number;
   diffLuck!: number;
   currentLuck!: number;
 
-  knowledge: number = 0;
+  knowledge!: number;
   diffKnowledge!: number;
   currentKnowledge!: number;
 
