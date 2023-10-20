@@ -1,0 +1,322 @@
+
+.main-screen-size {
+  width: 100vw;
+  height: 100svh;
+  box-sizing: border-box;
+  padding: 20px;
+  padding-top: 80px; 
+  background-color: #a4ffdc;
+}
+
+.actions-container {
+  display: flex;
+  padding-bottom: 10px;
+
+  .upload-box {
+    // margin-right: auto;
+    width: 160px;
+    height: 160px;
+    padding: 5px;
+    border: 2px dashed #333;
+    border-radius: 8px;
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    cursor: pointer;
+  
+    background-size: cover;
+
+    .upload-box span {
+      text-align: center;
+    }
+  }
+
+  .dace-btn {
+    width: 70px;
+    height: 70px;
+    margin-top: auto;
+    margin-left: 10px;
+    margin-right: auto;
+    // background-color: #07A0C3;
+    background-image: url("/assets/サイコロのフリー素材1.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+
+  }
+
+  .btn-container {
+    display: flex;
+
+    .cancel-btn {
+      background-color: #DD1C1A;
+      color: #ffffff;
+      border: none;
+      height: 30%;
+      width: 150px;
+    }
+    .cancel-btn:hover {
+      background-color: #d85d5b;
+      border: 2px solid #ffffff;
+    }
+
+    .submit-btn {
+      background-color: #07A0C3;
+      color: #ffffff;
+      border: none;
+      height: 40%;
+      width: 200px;
+    }
+    .submit-btn:hover {
+      background-color: #65afbf;
+      border: 2px solid #ffffff;
+
+    }
+
+  }
+    button {
+      font-weight: bold;
+      font-size: large;
+      border-radius: 10px;
+      margin-top: auto;
+      margin-left: 10px;
+      
+    
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+td, th {
+  border: 1px solid #595959;
+}
+
+table {
+  width: 100%;
+  margin-bottom: 5px;
+  box-sizing: border-box;
+  
+  
+  // table-layout: fixed;
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+caption {
+  text-align: left;
+  padding-left: 6px;
+}
+
+tbody {
+  border: none;
+}
+
+th {
+  white-space: nowrap;
+  overflow: hidden;
+	// width: 100px;
+	height: 45px;
+  padding: 0;
+  padding-inline: 6px;
+	background: #F5CB5C;
+  
+  .width-100px-spacer {
+    width: 100px;
+  }
+  
+}
+td.checkbox-cell {
+  background: #f5ead2;
+  label { 
+    padding-left: 10px;
+    font-size: 20px;
+  }
+  input {
+    padding-left: 10px;
+    height: 20px;
+    width: 20px;
+  }
+}
+.color-label {
+  font-size: 30px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+
+  pointer-events: none;
+}
+td {
+  overflow: hidden; /* セル内のコンテンツがはみ出た場合に隠す */
+  white-space: nowrap;
+	height: 45px;
+  padding: 0;
+  
+  .even-cell {
+    background: #f0d791;
+  }
+  input {
+    background: #f5ead2;
+  }
+  .status-input {
+    width: 100%;
+    height: 45px;
+    padding: 0;
+    border: none;
+    font-size: 160%;
+    text-align: right;
+  }
+  
+  .profile-input {
+    box-sizing: border-box;
+    width: 100%;
+    height: 45px;
+    padding: 0;
+    padding-left: 10px;
+    border: none;
+    font-size: 160%;
+    text-align: left;
+  }
+}
+
+.all-table-conntainer {
+  display: flex;
+}
+
+.static-status-container {
+  width: calc(50vw - 10px);
+  padding-right: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+.skills-form-container {
+  margin-bottom: 100px;
+  width: calc(50vw - 10px);
+  padding-left: 5px;
+}
+
+.latter-table {
+  border-left-style:none;
+}
+
+.latter-half-status {
+  td:first-child {
+    border-left-style:none; 
+  }
+  th:first-child {
+    border-left-style:none; 
+  }
+}
+
+.row-title {
+  th{
+    height: 20px;
+  }
+}
+
+.auto-cal-sell {
+	background: #b3b3b3 !important;
+}
+
+.even {
+	background: #fbf8f0;
+}
+.odd {
+	background: #fefcf9;
+}
+
+
+
+.skill-input {
+  width: 100%;
+  box-sizing: border-box;
+  height: 45px;
+  padding: 0;
+  padding-left: 10px;
+  border: none;
+  font-size: 160%;
+  text-align: left;
+}
+
+.btn-cell {
+  border: none;
+  width: 48px;
+  button {
+    width: 40px;
+    height: 40px;
+
+    margin: 2.5px;
+    margin-left: 3px;
+    border: none;
+    border-radius: 45px;
+  }
+  .skill-add-btn {
+    // font-size: 32px;
+    color: #ffffff;
+    background-color: #07A0C3;
+  }
+  .skill-del-btn {
+    font-size: 12px;
+    color: #ffffff;
+    background-color: #DD1C1A;
+  }
+}
+.add-btn-hidden {
+  width: 100%;
+  height: 45px;
+  border: none;
+  background-color: #07A0C3;
+  color: #ffffff;
+}
+
+
+
+@media (max-width:910px) { 
+  .all-table-conntainer {
+    flex-direction: column;
+  }
+  .skills-form-container {
+    width: 100%;
+    padding-left: 0 !important;
+  }
+  .static-status-container {
+    width: 100%;
+  }
+  
+}
+@media (max-width:668px) {
+  .btn-container {
+    button {
+      margin-top: 10px;
+      font-size: 11px;
+    }
+    width: 80px;
+    flex-wrap: wrap;
+    align-content: flex-end;
+  }
+}
+
+@media (max-width:1000px) {
+  .stetas-container {
+    flex-wrap: wrap;
+  }
+  .hidden-captiion {
+    display: none;
+  }
+}
+@media (min-width:1000px) {
+  .hidden-title {
+    display: none;
+  }
+}

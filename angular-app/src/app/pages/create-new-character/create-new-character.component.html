@@ -1,0 +1,293 @@
+<div class="main-screen-size">
+
+ <div class="actions-container">
+  <div class="upload-box" [ngStyle]="backgroundImageStyle" (click)="input.click()" (dragover)="dragOver($event)" (drop)="drop($event)">
+    <input #input type="file" accept="image/*" id="input" (change)="onChangeInput($event)" hidden>
+    <span *ngIf="!isContainImg">画像をドラッグ&ドロップ、または<br>クリックしてアップロードしてください！</span>
+  </div>
+  <div class="dace-btn"></div>
+  <div class="btn-container">
+    <button class="cancel-btn">キャンセル</button>
+    <button class="submit-btn" (click)="uplodeFile()">保存</button>
+  </div>
+  
+
+ </div>
+
+  
+<div class="all-table-conntainer">
+
+  <div class="static-status-container">
+  
+    <table class="profile-table">
+      <caption>プロフィール</caption>
+      <tbody>
+        <tr>
+          <th>name</th>
+          <td><input type="text" class="profile-input" placeholder=" name" [(ngModel)]="name"></td>
+        </tr>
+        <tr>
+          <th>memo</th>
+          <td><input #2 type="text" class="profile-input even-cell" placeholder=" memo" [(ngModel)]="memo"></td>
+        </tr>
+        <tr>
+          <th>externalUrl</th>
+          <td><input type="text" class="profile-input" placeholder=" externalUrl" [(ngModel)]="externalUrl"></td>
+        </tr>
+        <tr>
+          <th>color</th>
+          <td><div style="position: relative;"><span class="color-label">Click here!</span><input type="color" class="profile-input even-cell" placeholder=" color" [(ngModel)]="color"></div></td>
+        </tr>
+        <tr>
+          <th>secret</th>
+          <td class="checkbox-cell"><label for="secret">ステータスを非公開</label><input id="secret" type="checkbox" placeholder="secret" [(ngModel)]="isSecred"></td>
+        </tr>
+      </tbody>
+    </table>
+    
+
+  <div class="stetas-container" style="display: flex;">
+    <table>
+      <caption>パラメータ</caption>
+      <tbody>
+        <tr class="row-title">
+          <th></th>
+          <th>STR</th>
+          <th>CON</th>
+          <th>POW</th>
+          <th>DEX</th>
+        </tr>
+        <tr>
+          <th>能力値</th>
+          <td><input type="number" class="status-input" [(ngModel)]="str" (ngModelChange)="calStatus()">
+          </td>
+          <td><input type="number" class="status-input even-cell" [(ngModel)]="con" (ngModelChange)="calStatus()">
+          </td>
+          <td><input type="number" class="status-input" [(ngModel)]="pow" (ngModelChange)="calStatus()">
+          </td>
+          <td><input type="number" class="status-input even-cell" [(ngModel)]="dex" (ngModelChange)="calStatus()">
+          </td>
+        </tr>
+        <tr>
+          <th>補正値</th>
+          <td><input type="number" class="status-input" [(ngModel)]="diffStr" (ngModelChange)="calStatus()">
+          </td>
+          <td><input type="number" class="status-input even-cell" [(ngModel)]="diffCon" (ngModelChange)="calStatus()">
+          </td>
+          <td><input type="number" class="status-input" [(ngModel)]="diffPow" (ngModelChange)="calStatus()">
+          </td>
+          <td><input type="number" class="status-input even-cell" [(ngModel)]="diffDex" (ngModelChange)="calStatus()">
+          </td>
+        </tr>
+        <tr>
+          <th>合計</th>
+          <td><input type="number" class="status-input auto-cal-sell" [(ngModel)]="currentStr" readonly>
+          </td>
+          <td><input type="number" class="status-input auto-cal-sell" [(ngModel)]="currentCon" readonly>
+          </td>
+          <td><input type="number" class="status-input auto-cal-sell" [(ngModel)]="currentPow" readonly>
+          </td>
+          <td><input type="number" class="status-input auto-cal-sell" [(ngModel)]="currentDex" readonly>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <table>
+      <caption class="hidden-captiion" style="opacity: 0;">ステータス</caption>
+      <tbody>
+        <tr class="row-title">
+          <th class="hidden-title"></th>
+          <th>APP</th>
+          <th>SIZ</th>
+          <th>INT</th>
+          <th>EDU</th>
+        </tr>
+        <tr>
+          <th class="hidden-title">能力値</th>
+          <td><input type="number" class="status-input add-cell" [(ngModel)]="app" (ngModelChange)="calStatus()">
+          </td>
+          <td><input type="number" class="status-input even-cell" [(ngModel)]="siz" (ngModelChange)="calStatus()">
+          </td>
+          <td><input type="number" class="status-input add-cell" [(ngModel)]="int" (ngModelChange)="calStatus()">
+          </td>
+          <td><input type="number" class="status-input even-cell" [(ngModel)]="edu" (ngModelChange)="calStatus()">
+          </td>
+        </tr>
+        <tr>
+          <th class="hidden-title">補正値</th>
+          <td><input type="number" class="status-input add-cell" [(ngModel)]="diffApp" (ngModelChange)="calStatus()">
+          </td>
+          <td><input type="number" class="status-input even-cell" [(ngModel)]="diffSiz" (ngModelChange)="calStatus()">
+          </td>
+          <td><input type="number" class="status-input add-cell" [(ngModel)]="diffInt" (ngModelChange)="calStatus()">
+          </td>
+          <td><input type="number" class="status-input even-cell" [(ngModel)]="diffEdu" (ngModelChange)="calStatus()">
+          </td>
+        </tr>
+        <tr>
+          <th class="hidden-title">合計</th>
+          <td><input type="number" class="status-input auto-cal-sell" [(ngModel)]="currentApp" readonly>
+          </td>
+          <td><input type="number" class="status-input auto-cal-sell" [(ngModel)]="currentSiz" readonly>
+          </td>
+          <td><input type="number" class="status-input auto-cal-sell" [(ngModel)]="currentInt" readonly>
+          </td>
+          <td><input type="number" class="status-input auto-cal-sell" [(ngModel)]="currentEdu" readonly>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+    
+
+
+
+  
+    <table>
+      <caption>ステータス</caption>
+      <tbody>
+        <tr class="row-title">
+          <th></th>
+          <th>HP</th>
+          <th>MP</th>
+          <th>SAN</th>
+          <th>アイデア</th>
+          <th>幸運</th>
+          <th>知識</th>
+        </tr>
+        <tr>
+          <th>初期値</th>
+          <td><input type="number" class="status-input auto-cal-sell" [(ngModel)]="hp" (ngModelChange)="calStatus()" readonly>
+          </td>
+          <td><input type="number" class="status-input auto-cal-sell" [(ngModel)]="mp" (ngModelChange)="calStatus()" readonly>
+          </td>
+          <td><input type="number" class="status-input auto-cal-sell" [(ngModel)]="san" (ngModelChange)="calStatus()" readonly>
+          </td>
+          <td><input type="number" class="status-input auto-cal-sell" [(ngModel)]="idea" (ngModelChange)="calStatus()" readonly>
+          </td>
+          <td><input type="number" class="status-input auto-cal-sell" [(ngModel)]="luck" (ngModelChange)="calStatus()" readonly>
+          </td>
+          <td><input type="number" class="status-input auto-cal-sell" [(ngModel)]="knowledge" (ngModelChange)="calStatus()" readonly>
+          </td>
+        </tr>
+        <tr>
+          <th>補正値</th>
+          <td><input type="number" class="status-input" [(ngModel)]="diffHp" (ngModelChange)="calStatus()">
+          </td>
+          <td><input type="number" class="status-input" [(ngModel)]="diffMp" (ngModelChange)="calStatus()">
+          </td>
+          <td><input type="number" class="status-input" [(ngModel)]="diffSan" (ngModelChange)="calStatus()">
+          </td>
+          <td><input type="number" class="status-input" [(ngModel)]="diffIdea" (ngModelChange)="calStatus()">
+          </td>
+          <td><input type="number" class="status-input" [(ngModel)]="diffLuck" (ngModelChange)="calStatus()">
+          </td>
+          <td><input type="number" class="status-input" [(ngModel)]="diffKnowledge" (ngModelChange)="calStatus()">
+          </td>
+        </tr>
+        <tr>
+          <th>合計</th>
+          <td><input type="number" class="status-input auto-cal-sell" [(ngModel)]="currentHp">
+          </td>
+          <td><input type="number" class="status-input auto-cal-sell" [(ngModel)]="currentMp">
+          </td>
+          <td><input type="number" class="status-input auto-cal-sell" [(ngModel)]="currentSan">
+          </td>
+          <td><input type="number" class="status-input auto-cal-sell" [(ngModel)]="currentIdea">
+          </td>
+          <td><input type="number" class="status-input auto-cal-sell" [(ngModel)]="currentLuck">
+          </td>
+          <td><input type="number" class="status-input auto-cal-sell" [(ngModel)]="currentKnowledge">
+          </td>
+        </tr>
+    
+      </tbody>
+    </table>
+  
+  </div>
+
+  <div class="skills-form-container">
+
+    <table>
+      <caption>その他</caption>
+      <tbody>
+        <tr>
+          <th>SAN値上限</th>
+          <td><input type="number" class="status-input auto-cal-sell" [(ngModel)]="sanMax" readonly>
+          </td>
+        </tr>
+        <tr>
+          <th>クトゥルフ神話技能</th>
+          <td><input type="number" class="status-input" [(ngModel)]="diffSanMax" (ngModelChange)="calStatus()">
+          </td>
+        </tr>
+        <tr>
+          <th>ダメージボーナス</th>
+          <td><input type="text" class="profile-input" placeholder="わかんない">
+          </td>
+        </tr>
+        <tr>
+          <th>年収</th>
+          <td><input type="text" class="profile-input" placeholder="Coming Soon..." readonly>
+          </td>
+        </tr>
+        <tr>
+          <th>総資産</th>
+          <td><input type="text" class="profile-input" placeholder="Coming Soon..." readonly>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+
+    <form [formGroup]="skillForms">
+  
+      <table class="skill-table">
+        <caption>技能</caption>
+        <tbody>
+          <tr class="row-title">
+            <th style="width: 50%;">技能名</th>
+            <th style="width: 16.6%;">初期値</th>
+            <th style="width: 16.6%;">補正値</th>
+            <th style="width: 16.6%;">合計</th>
+          </tr>
+          <tr *ngIf="skills.length == 0">
+            <td colspan="4"><button class="add-btn-hidden" (click)="addSkillForm()">追加</button>
+            </td>
+          </tr>
+      
+          <ng-container formArrayName="skills">
+            <tr *ngFor="let skill of skills.controls; let i=index">
+              <ng-container [formGroupName]="i">
+                <td><input type="text" class="skill-input" placeholder="ラベル" formControlName="skillLabel">
+                </td>
+                <td><input type="number" class="skill-input" formControlName="skillVal" (ngModelChange)="changeSkillForm(i)">
+                </td>
+                <td><input type="number" class="skill-input" formControlName="skillDiff" (ngModelChange)="changeSkillForm(i)">
+                </td>
+                <td><input type="number" class="skill-input auto-cal-sell" formControlName="skillCurrent" [(ngModel)]="this.skills.value[i].skillCurrent">
+                </td>
+                <td class="btn-cell"><button (click)="addSkillForm(i)" class="skill-add-btn ">追加</button>
+                </td>
+                <td class="btn-cell"><button (click)="removeSkillForm(i)" class="skill-del-btn">削除</button>
+                </td>
+              </ng-container>
+            </tr>
+          </ng-container>
+          
+        </tbody>
+      </table>
+    </form>
+  </div>
+
+</div>
+
+
+
+
+
+</div>
+
+

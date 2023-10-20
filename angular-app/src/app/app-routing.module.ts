@@ -1,25 +1,30 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { FirstPageComponent } from './pages/first-page/first-page.component';
-import { SecondPageComponent } from './pages/second-page/second-page.component';
+import { CharacterListComponent } from './pages/character-list/character-list.component';
+import { MyPageComponent } from './pages/my-page/my-page.component';
+import { CreateNewCharacterComponent } from './pages/create-new-character/create-new-character.component';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'home/firstpage',
+    redirectTo: 'home/create-new-character',
     pathMatch: 'full'
   },
   {
     path: 'home',
     children: [
       {
-        path: 'firstpage',
-        component: FirstPageComponent
+        path: 'character-list',
+        component: CharacterListComponent
       },
       {
-        path: 'secondpage',
-        component: SecondPageComponent
-      }
+        path: 'my-page',
+        component: MyPageComponent
+      },
+      {
+        path: 'create-new-character',
+        component: CreateNewCharacterComponent
+      },
     ]
   }
 ];

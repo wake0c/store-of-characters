@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FirstPageComponent } from './first-page.component';
+import { ToolbarComponent } from './toolbar.component';
 
-describe('FirstPageComponent', () => {
-  let component: FirstPageComponent;
-  let fixture: ComponentFixture<FirstPageComponent>;
+describe('ToolbarComponent', () => {
+  let component: ToolbarComponent;
+  let fixture: ComponentFixture<ToolbarComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [FirstPageComponent]
+      declarations: [ToolbarComponent]
     });
-    fixture = TestBed.createComponent(FirstPageComponent);
+    fixture = TestBed.createComponent(ToolbarComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

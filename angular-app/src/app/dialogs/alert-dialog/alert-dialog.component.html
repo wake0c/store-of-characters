@@ -1,0 +1,6 @@
+<p>{{ data.text }}を本当に削除してよいですか？</p>
+<div>
+  <!-- [mat-dialog-close]に渡した値を呼び出し元に返す -->
+  <button [mat-dialog-close]="response">OK</button>
+  <button (click)="cancel()" cdkFocusInitial>キャンセル</button>
+</div>

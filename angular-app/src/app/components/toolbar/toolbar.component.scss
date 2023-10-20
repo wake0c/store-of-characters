@@ -1,0 +1,87 @@
+
+nav {
+  width: 100%;
+  height: 70px;
+  display: flex;
+
+  background-color: #0a8459;
+  color: #f3eb42;
+
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+}
+
+.title {
+  font-size: 35px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+/*==================================================
+　5-2-1 3本線が×に
+===================================*/
+/*ボタン外側※レイアウトによってpositionや形状は適宜変更してください*/
+.openbtn{
+	/*ボタン内側の基点となるためrelativeを指定。
+追従するナビゲーションの場合はfixed＋top、rightといった位置をセットで指定*/
+	position: relative;
+	background:#ffffff00;
+	cursor: pointer;
+    width: 70px;
+    height:70px;
+	border-radius: 5px;
+}
+
+/*ボタン内側*/
+.openbtn span{
+    display: inline-block;
+    transition: all .4s;/*アニメーションの設定*/
+    position: absolute;
+    left: 19.25px;
+    height: 3px;
+    border-radius: 2px;
+	background: #f3eb42;
+  	width: 45%;
+  }
+
+.openbtn span:nth-of-type(1) {
+	top:23px;	
+}
+
+.openbtn span:nth-of-type(2) {
+	top:31px;
+}
+
+.openbtn span:nth-of-type(3) {
+	top:39px;
+}
+
+/*activeクラスが付与されると線が回転して×に*/
+
+.openbtn.active span:nth-of-type(1) {
+    top: 24px;
+    left: 19.25px;
+    transform: translateY(6px) rotate(-45deg);
+    width: 45%;
+}
+
+.openbtn.active span:nth-of-type(2) {
+	opacity: 0;/*真ん中の線は透過*/
+}
+
+.openbtn.active span:nth-of-type(3){
+    top: 35px;
+    left: 19.25px;
+    transform: translateY(-6px) rotate(45deg);
+    width: 45%;
+}
+
+@media (max-width:910px) { 
+  .title {
+    font-size: 23px;
+  }
+}
