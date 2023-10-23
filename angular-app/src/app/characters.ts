@@ -43,66 +43,73 @@ export interface firestoreCharacter {
   color: string;
   isSecred: boolean;
 
-  str: number;
-  diffStr: number;
-  currentStr:number
+  str: number | null;
+  diffStr: number | null;
+  currentStr: number | null;
 
-  con: number;
-  diffCon: number;
-  currentCon: number;
+  con: number | null;
+  diffCon: number | null;
+  currentCon: number | null;
 
-  pow: number;
-  diffPow: number;
-  currentPow: number;
+  pow: number | null;
+  diffPow: number | null;
+  currentPow: number | null;
 
-  dex: number;
-  diffDex: number;
-  currentDex: number;
-
-  
-  app: number;
-  diffApp: number;
-  currentApp: number;
-
-  siz: number;
-  diffSiz: number;
-  currentSiz: number;
-
-  int: number;
-  diffInt: number;
-  currentInt: number;
-
-  edu: number;
-  diffEdu: number;
-  currentEdu: number;
+  dex: number | null;
+  diffDex: number | null;
+  currentDex: number | null;
 
 
-  hp: number;
-  diffHp: number;
-  currentHp: number;
+  app: number | null;
+  diffApp: number | null;
+  currentApp: number | null;
 
-  mp: number;
-  diffMp: number;
-  currentMp: number;
+  siz: number | null;
+  diffSiz: number | null;
+  currentSiz: number | null;
 
-  san: number;
-  diffSan :number;
-  currentSan: number;
-  
-  sanMax:number;
-  diffSanMax: number;
+  int: number | null;
+  diffInt: number | null;
+  currentInt: number | null;
 
-  idea: number;
-  diffIdea: number;
-  currentIdea: number;
+  edu: number | null;
+  diffEdu: number | null;
+  currentEdu: number | null;
 
-  luck: number;
-  diffLuck: number;
-  currentLuck: number;
 
-  knowledge: number;
-  diffKnowledge: number;
-  currentKnowledge: number;
+  hp: number | null;
+  diffHp: number | null;
+  currentHp: number | null;
 
-  skills: any;
+  mp: number | null;
+  diffMp: number | null;
+  currentMp: number | null;
+
+  san: number | null;
+  diffSan: number | null;
+  currentSan: number | null;
+
+  sanMax: number | null;
+  diffSanMax: number | null;
+
+  idea: number | null;
+  diffIdea: number | null;
+  currentIdea: number | null;
+
+  luck: number | null;
+  diffLuck: number | null;
+  currentLuck: number | null;
+
+  knowledge: number | null;
+  diffKnowledge: number | null;
+  currentKnowledge: number | null;
+
+  skills: Array<skills>;
+}
+
+export interface skills {
+  skillLabel: string,
+  skillVal: number,
+  skillDiff: number,
+  skillCurrent: number
 }

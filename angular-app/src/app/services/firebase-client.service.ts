@@ -30,7 +30,7 @@ export class FirebaseClientService {
 
   async insertCharacter(character: firestoreCharacter, status: CharacterClipboardData) {
     this._statusTmp = status;
-    addDoc(collection(this.firestore,'characters'),<firestoreCharacter>character);
+    addDoc(collection(this.firestore,'characters'),<firestoreCharacter> character);
   }
   
   get statusTmp(): CharacterClipboardData{

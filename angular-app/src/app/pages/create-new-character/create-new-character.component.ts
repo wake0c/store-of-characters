@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { FormBuilder, Validators, FormArray, FormGroup } from '@angular/forms';
 import { Storage, ref, uploadBytesResumable } from '@angular/fire/storage';
-import { Character, CharacterClipboardData, firestoreCharacter } from 'src/app/characters';
+import { Character, CharacterClipboardData, firestoreCharacter, skills } from 'src/app/characters';
 import { MatDialog } from '@angular/material/dialog';
 import { AlertDialogComponent } from 'src/app/dialogs/alert-dialog/alert-dialog.component';
 import { Router } from '@angular/router';
@@ -35,64 +35,64 @@ export class CreateNewCharacterComponent {
 
   
   str: number = 12;
-  diffStr!: number;
+  diffStr: number | null = null;
   currentStr!:number
 
   con: number = 3;
-  diffCon!: number;
+  diffCon: number | null = null;
   currentCon!: number;
 
   pow: number = 17;
-  diffPow!: number;
+  diffPow: number | null = null;
   currentPow!: number;
 
   dex: number = 14;
-  diffDex!: number;
+  diffDex: number | null = null;
   currentDex!: number;
 
   
   app: number = 17;
-  diffApp!: number;
+  diffApp: number | null = null;
   currentApp!: number;
 
   siz: number = 13;
-  diffSiz!: number;
+  diffSiz: number | null = null;
   currentSiz!: number;
 
   int: number = 14;
-  diffInt!: number;
+  diffInt: number | null = null;
   currentInt!: number;
 
   edu: number = 17;
-  diffEdu!: number;
+  diffEdu: number | null = null;
   currentEdu!: number;
 
 
   hp!: number;
-  diffHp!: number;
+  diffHp: number | null = null;
   currentHp!: number;
 
   mp!: number;
-  diffMp!: number;
+  diffMp: number | null = null;
   currentMp!: number;
 
   san: number = 0;
-  diffSan! :number;
+  diffSan: number | null = null;
   currentSan!: number;
   
   sanMax:number = 99;
-  diffSanMax!: number;
+  diffSanMax: number | null = null;
 
   idea: number = 0;
-  diffIdea!: number;
+  diffIdea: number | null = null;
   currentIdea!: number;
 
   luck: number = 0;
-  diffLuck!: number;
+  diffLuck: number | null = null;
   currentLuck!: number;
 
   knowledge: number = 0;
-  diffKnowledge!: number;
+  diffKnowledge: number | null = null;
   currentKnowledge!: number;
 
   skillForms: FormGroup = this.fb.group({
@@ -105,12 +105,12 @@ export class CreateNewCharacterComponent {
       })
     ])
   });
+  private firestore: Firestore = inject(Firestore);
 
   constructor(
     private fb: FormBuilder,
     public dialog: MatDialog,
     private router: Router,
-    private firestore: Firestore = inject(Firestore),
     private firebaseClientService: FirebaseClientService,
     ){
       this.calStatus();
@@ -232,18 +232,6 @@ export class CreateNewCharacterComponent {
     this.backgroundImageStyle = {'background-image':`url("${URL.createObjectURL(file)}")`};
     this.isContainImg = true;
   }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -383,7 +371,7 @@ export class CreateNewCharacterComponent {
       }
     }
     this.firebaseClientService.insertCharacter(character, status);
-    console.log(JSON.stringify(status));
+    console.log(character);
     this.router.navigateByUrl('home/character-ditail');
   }
   
